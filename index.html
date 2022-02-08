@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta name="viewport" content="width=device.width, intial-scale=1">
+        <title>Задание 1</title>
+        <style>
+            body, html {
+                height: 100%;
+            }
+
+            .wrapper {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .img-container {
+                margin: 15px 0;
+            }
+
+            .img-container p {
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .img-container img {
+                width: 100%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="img-container">
+                <img src="./images/pingkub.png">
+                <p>ping -c 5 kubsu.ru</p>
+            </div>
+            <div class="img-container">
+                <img src="./images/lookupkub.png">
+                <p>lookup -type=(ns/a) kubsu.ru</p>
+            </div>
+            <div class="img-container">
+                <img src="./images/lookupkubdev.png">
+                <p>lookup -type=(ns/a) kubsu-dev.ru</p>
+            </div>
+            <div class="img-container">
+                <img src="./images/whoiskub.png">
+                <p>whois kubsu.ru</p>
+            </div>
+            <div class="img-container">
+                <img src="./images/whoiskubdev.png">
+                <p>whois kubsu-dev.ru</p>
+            </div>
+        </div>
+    </body>
+</html>
