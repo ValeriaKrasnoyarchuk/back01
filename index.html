@@ -1,62 +1,81 @@
 <!DOCTYPE html>
 <html lang="">
-    <head>
-        <meta name="viewport" content="width=device.width, intial-scale=1">
-        <title>Task 1</title>
-        <style>
-            body, html {
-                height: 100%;
-            }
 
-            .wrapper {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
+<head>
+    <meta name="viewport" content="width=device.width, intial-scale=1">
+    <title>Task 1</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
 
-            .img-container {
-                margin: 15px 0;
-            }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-            .img-container p {
-                font-family: 'Courier New', Courier, monospace;
-                font-size: 20px;
-                font-weight: bold;
-            }
+        .img-container {
+            margin: 15px 0;
+        }
 
-            .img-container img {
-                width: 100%;
-            }
+        .img-container p {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+            font-weight: bold;
+        }
 
-        </style>
-    </head>
-    <body>
-        <div class="wrapper">
-            <div class="img-container">
-                <img src="./images/pingkub.png">
-                <p>ping -c 5 kubsu.ru</p>
-            </div>
-            <div class="img-container">
-                <img src="./images/lookupkub.png">
-                <p>lookup -type=(ns/a) kubsu.ru</p>
-            </div>
-            <div class="img-container">
-                <img src="./images/lookupkubdev.png">
-                <p>lookup -type=(ns/a) kubsu-dev.ru</p>
-            </div>
-            <div class="img-container">
-                <img src="./images/whoiskub.png">
-                <p>whois kubsu.ru</p>
-            </div>
-            <div class="img-container">
-                <img src="./images/whoiskubdev.png">
-                <p>whois kubsu-dev.ru</p>
-            </div>
-	    <div class="img-container">
-		<img src="./images/filezilla.png">
-		<p>Filezilla</p>
-            </div>
+        .img-container img {
+            width: 100%;
+        }
+
+        .menu {
+            list-style-type: none;
+            display: flex;
+            font-size: 16px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .menu li {
+            margin: 0 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="img-container">
+            <img src="./images/pingkub.png">
+            <p>ping -c 5 kubsu.ru</p>
         </div>
-    </body>
+        <div class="img-container">
+            <img src="./images/lookupkub.png">
+            <p>lookup -type=(ns/a) kubsu.ru</p>
+        </div>
+        <div class="img-container">
+            <img src="./images/lookupkubdev.png">
+            <p>lookup -type=(ns/a) kubsu-dev.ru</p>
+        </div>
+        <div class="img-container">
+            <img src="./images/whoiskub.png">
+            <p>whois kubsu.ru</p>
+        </div>
+        <div class="img-container">
+            <img src="./images/whoiskubdev.png">
+            <p>whois kubsu-dev.ru</p>
+        </div>
+        <div class="img-container">
+            <img src="./images/filezilla.png">
+            <p>Filezilla</p>
+        </div>
+        <ul class="menu">
+            <li><a href="./index.html">1</a></li>
+            <li><a href="./task2/task2.html">2</a></li>
+        </ul>
+    </div>
+</body>
+
 </html>
