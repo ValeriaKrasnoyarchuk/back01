@@ -70,7 +70,7 @@ $db = new PDO('mysql:host=localhost;dbname=u47572', $user, $pass, array(PDO::ATT
 
 // Подготовленный запрос. Не именованные метки.
 try {
-  $stmt = $db->prepare("INSERT INTO users SET name = ?, email = ?, date = ?, gender = ?, limbs = ?, policy = ?");
+  $stmt = $db->prepare("INSERT INTO clients SET name = ?, email = ?, date = ?, gender = ?, limbs = ?, policy = ?");
   $stmt -> execute(array($name, $email, $date, $gender, $limbs, $policy));
   $power_id = $db->lastInsertId();
   
