@@ -57,7 +57,7 @@
                     <label class="form-check-label" for="female">4</label>
                 </div>
             </div>
-            <select class="form-select form-select-lg mb-2" name="superpowers" multiple>
+            <select class="form-select form-select-lg mb-2" name="select[]" multiple>
                 <option value="inf" selected>Бессмертие</option>
                 <option value="through">Прохождение сквозь стены</option>
                 <option value="levitation">Левитация</option>
@@ -66,7 +66,7 @@
                 <textarea class="form-control" placeholder="Расскажите о себе..." name="bio"></textarea>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="agree" id="policy" input="policy"/>
+                <input class="form-check-input" type="checkbox" value="agree" id="policy" name="policy"/>
                 <label class="form-check-label" for="policy">Согласен с <a href="./task3.html">политикой обработки данных*</a>.</label>
             </div>
             <button class="btn btn-primary" type="submit" id="send-btn">Отправить</button>

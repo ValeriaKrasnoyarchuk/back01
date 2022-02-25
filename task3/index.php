@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     exit();
 }
 // Иначе, если запрос был методом POST, т.е. нужно проверить данные и сохранить их в XML-файл.
-
+print(implode(',',$_POST['select']));
 // Проверяем ошибки.
 $errors = FALSE;
 if (empty($_POST['name'])) {
@@ -38,7 +38,7 @@ if (empty($_POST['limbs'])) {
     print('Выберите количество конечностей.<br/>');
     $errors = TRUE;
 }
-if (empty($_POST['superpowers'])) {
+if (empty($_POST['select'])) {
     print('Выберите суперспособнос(ть/ти).<br/>');
     $errors = TRUE;
 }
