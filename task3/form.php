@@ -14,7 +14,7 @@
         <div class="form-title">
             Форма
         </div>
-        <form method="POST" action="http://u47572.kubsu-dev.ru/back01/task3/serv.js">
+        <form method="POST" action="">
             <div class="input-group">
                 <span class="input-group-text" id="basic-addon1">Имя</span>
                 <input type="text" class="form-control" name="name" aria-describedby="basic-addon1" placeholder="Тарас" />
