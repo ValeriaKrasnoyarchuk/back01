@@ -57,37 +57,33 @@ if ($errors) {
 }
 
 // Сохранение в базу данных.
+$name = $_POST['name'];
+$email = $_POST['email'];
+$date = $_POST['date'];
+$gender = $_POST['gender'];
+$limbs = $_POST['limbs'];
+$policy = $_POST['policy'];
+$powers = implode(',',$_POST['select']);
 
-// $user = 'db';
-// $pass = '123';
-// $db = new PDO('mysql:host=localhost;dbname=test', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
+$user = 'u47572';
+$pass = '4532025';
+$db = new PDO('mysql:host=localhost;dbname=u47572', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 
-// // Подготовленный запрос. Не именованные метки.
-// try {
-//   $stmt = $db->prepare("INSERT INTO application (name) SET name = ?");
-//   $stmt -> execute(array('fio'));
-// }
-// catch(PDOException $e){
-//   print('Error : ' . $e->getMessage());
-//   exit();
-// }
+// Подготовленный запрос. Не именованные метки.
+try {
+  $stmt = $db->prepare("INSERT INTO users SET name = ?, email = ?, date = ?, gender = ?, limbs = ?, policy = ?");
+  $stmt -> execute(array($name, $email, $date, $gender, $limbs, $policy, $powers));
+  $power_id = $db->lastInsertId();
+  
+  $superpowers = $db->prepare("INSERT INTO superpowers SET power_id = ?, powers = ?");
+  $superpowers -> execute(array($power_id, $powers));
+}
+catch(PDOException $e){
+  print('Error : ' . $e->getMessage());
+  exit();
+}
 
 //  stmt - это "дескриптор состояния".
-
-//  Именованные метки.
-//$stmt = $db->prepare("INSERT INTO test (label,color) VALUES (:label,:color)");
-//$stmt -> execute(array('label'=>'perfect', 'color'=>'green'));
-
-//Еще вариант
-/*$stmt = $db->prepare("INSERT INTO users (firstname, lastname, email) VALUES (:firstname, :lastname, :email)");
-$stmt->bindParam(':firstname', $firstname);
-$stmt->bindParam(':lastname', $lastname);
-$stmt->bindParam(':email', $email);
-$firstname = "John";
-$lastname = "Smith";
-$email = "john@test.com";
-$stmt->execute();
-*/
 
 // Делаем перенаправление.
 // Если запись не сохраняется, но ошибок не видно, то можно закомментировать эту строку чтобы увидеть ошибку.

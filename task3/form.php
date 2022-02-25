@@ -30,30 +30,30 @@
             <div class="form-check" id="gender-block">
                 <span class="input-group-text">Пол</span>
                 <div class="male-radio">
-                    <input class="form-check-input" type="radio" name="gender" id="male" />
+                    <input class="form-check-input" type="radio" name="gender" value="m" />
                     <label class="form-check-label" for="male">Мужской</label>
                 </div>
                 <div class="female-radio">
-                    <input class="form-check-input" type="radio" name="gender" id="female" />
+                    <input class="form-check-input" type="radio" name="gender" value="f" />
                     <label class="form-check-label" for="female">Женский</label>
                 </div>
             </div>
             <div class="form-check" id="limbs-block">
                 <span class="input-group-text block-title">Кол-во конечностей</span>
                 <div class="limbs-radio">
-                    <input class="form-check-input" type="radio" name="limbs" />
+                    <input class="form-check-input" type="radio" name="limbs" value="1"/>
                     <label class="form-check-label" for="male">1</label>
                 </div>
                 <div class="limbs-radio">
-                    <input class="form-check-input" type="radio" name="limbs" />
+                    <input class="form-check-input" type="radio" name="limbs" value="2"/>
                     <label class="form-check-label" for="female">2</label>
                 </div>
                 <div class="limbs-radio">
-                    <input class="form-check-input" type="radio" name="limbs" />
+                    <input class="form-check-input" type="radio" name="limbs" value="3"/>
                     <label class="form-check-label" for="female">3</label>
                 </div>
                 <div class="limbs-radio">
-                    <input class="form-check-input" type="radio" name="limbs" />
+                    <input class="form-check-input" type="radio" name="limbs" value="4"/>
                     <label class="form-check-label" for="female">4</label>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 <textarea class="form-control" placeholder="Расскажите о себе..." name="bio"></textarea>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="agree" id="policy" name="policy"/>
+                <input class="form-check-input" type="checkbox" value="y" id="policy" name="policy"/>
                 <label class="form-check-label" for="policy">Согласен с <a href="./task3.html">политикой обработки данных*</a>.</label>
             </div>
             <button class="btn btn-primary" type="submit" id="send-btn">Отправить</button>
