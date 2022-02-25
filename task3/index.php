@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     exit();
 }
 // Иначе, если запрос был методом POST, т.е. нужно проверить данные и сохранить их в XML-файл.
-print(implode(',',$_POST['select']));
 // Проверяем ошибки.
 $errors = FALSE;
 if (empty($_POST['name'])) {
@@ -72,7 +71,7 @@ $db = new PDO('mysql:host=localhost;dbname=u47572', $user, $pass, array(PDO::ATT
 // Подготовленный запрос. Не именованные метки.
 try {
   $stmt = $db->prepare("INSERT INTO users SET name = ?, email = ?, date = ?, gender = ?, limbs = ?, policy = ?");
-  $stmt -> execute(array($name, $email, $date, $gender, $limbs, $policy, $powers));
+  $stmt -> execute(array($name, $email, $date, $gender, $limbs, $policy));
   $power_id = $db->lastInsertId();
   
   $superpowers = $db->prepare("INSERT INTO superpowers SET power_id = ?, powers = ?");
