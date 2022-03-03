@@ -163,9 +163,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     try {
         $stmt = $db->prepare("INSERT INTO users SET name = ?, email = ?, date = ?, gender = ?, limbs = ?, policy = ?");
         $stmt->execute(array($name, $email, $date, $gender, $limbs, $policy));
+        $user_id = $db->lastInsertId();
 
-        $superpowers = $db->prepare("INSERT INTO powers SET powers = ?");
-        $superpowers->execute(array($powers));
+        $superpowers = $db->prepare("INSERT INTO powers SET powers = ?, user_id = ? ");
+        $superpowers->execute(array($powers, $user_id));
     } catch (PDOException $e) {
         print('Error : ' . $e->getMessage());
         exit();
