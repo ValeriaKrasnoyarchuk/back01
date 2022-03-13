@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
     if ($errors['birth']) {
         setcookie('birth_error', '', 100000);
-        $messages[] = '<div class="error">Выберите дату рождения.</div>';
+        $messages[] = '<div class="error">Введите корректную дату рождения.</div>';
     }
     if ($errors['gender']) {
         setcookie('gender_error', '', 100000);
@@ -155,6 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $date = $_POST['birth'];
     $gender = $_POST['gender'];
     $limbs = $_POST['limbs'];
+    $bio = $_POST['bio'];
     $policy = $_POST['policy'];
     $powers = implode(',', $_POST['select']);
 
@@ -163,12 +164,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $db = new PDO('mysql:host=localhost;dbname=u47572', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 
     try {
-        $stmt = $db->prepare("INSERT INTO users SET name = ?, email = ?, date = ?, gender = ?, limbs = ?, policy = ?");
-        $stmt->execute(array($name, $email, $date, $gender, $limbs, $policy));
-        $user_id = $db->lastInsertId();
+        $stmt = $db->prepare("INSERT INTO users SET name = ?, email = ?, date = ?, gender = ?, limbs = ?, bio = ? policy = ?");
+        $stmt->execute(array($name, $email, $date, $gender, $limbs, $bio, $policy));
+        $power_id = $db->lastInsertId();
 
         $superpowers = $db->prepare("INSERT INTO powers SET powers = ?, user_id = ? ");
-        $superpowers->execute(array($powers, $user_id));
+        $superpowers->execute(array($powers, $power_id));
     } catch (PDOException $e) {
         print('Error : ' . $e->getMessage());
         exit();
