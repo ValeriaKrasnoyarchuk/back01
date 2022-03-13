@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // проверка поля даты рождения
     $birth = explode('.', $_POST['birth']);
     $age = (int)$birth[2] - (int)date('Y');
-    if (empty($_POST['birth']) && !checkdate($birth[1], $birth[0], $birth[2]) && ($age > 100 || $age <= 0)) {
+    if (!checkdate($birth[1], $birth[0], $birth[2]) && ($age > 100 || $age <= 0)) {
         setcookie('birth_error', '1', time() + 24 * 60 * 60);
         $errors = TRUE;
     } else {
