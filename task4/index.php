@@ -92,6 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (!checkdate($birth[1], $birth[0], $birth[2]) && ($age > 100 || $age <= 0)) {
         setcookie('birth_error', '1', time() + 24 * 60 * 60);
         $errors = TRUE;
+        print($_POST['birth']);
     } else {
         setcookie('birth_value', $_POST['birth'], time() + 12 * 30 * 24 * 60 * 60);
     }
