@@ -87,9 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
 
     // проверка поля даты рождения
-    $date = implode('.', $_POST['birth']);
-    $age = (int)$date[2] - (int)date('Y');
-    if (empty($_POST['birth']) && !checkdate($date[1], $date[0], $date[2]) && $age > 100 && $age <= 0) {
+    $birth = implode('.', $_POST['birth']);
+    $age = (int)$birth[2] - (int)date('Y');
+    if (empty($_POST['birth']) && !checkdate($birth[1], $birth[0], $birth[2]) && ($age > 100 || $age <= 0)) {
         setcookie('birth_error', '1', time() + 24 * 60 * 60);
         $errors = TRUE;
     } else {
@@ -164,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $db = new PDO('mysql:host=localhost;dbname=u47572', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 
     try {
-        $stmt = $db->prepare("INSERT INTO users SET name = ?, email = ?, date = ?, gender = ?, limbs = ?, bio = ? policy = ?");
+        $stmt = $db->prepare("INSERT INTO users SET name = ?, email = ?, date = ?, gender = ?, limbs = ?, bio = ?, policy = ?");
         $stmt->execute(array($name, $email, $date, $gender, $limbs, $bio, $policy));
         $power_id = $db->lastInsertId();
 
