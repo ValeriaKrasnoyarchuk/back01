@@ -62,7 +62,7 @@ else {
     // Если все ок, то авторизуем пользователя.
     $_SESSION['login'] = $_POST['login'];
     // Записываем ID пользователя.
-    $_SESSION['uid'] = 123;
+    $_SESSION['uid'] = $_POST['pass'];
     // Делаем перенаправление.
     header('Location: ./');
   }
