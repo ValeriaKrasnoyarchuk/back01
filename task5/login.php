@@ -64,6 +64,6 @@ else {
     // Записываем ID пользователя.
     $_SESSION['uid'] = $_POST['pass'];
     // Делаем перенаправление.
-    header('Location: ./');
+    header('Location: ./form');
   }
 }
