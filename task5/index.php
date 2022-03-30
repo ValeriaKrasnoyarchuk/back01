@@ -86,14 +86,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   // Складываем предыдущие значения полей в массив, если есть.
   // При этом санитизуем все данные для безопасного отображения в браузере.
   $values = array();
-  $values['name'] = empty($_COOKIE['name_value']) ? '' : $_COOKIE['name_value'];
-  $values['email'] = empty($_COOKIE['email_value']) ? '' : $_COOKIE['email_value'];
-  $values['birth'] = empty($_COOKIE['birth_value']) ? '' : $_COOKIE['birth_value'];
-  $values['gender'] = empty($_COOKIE['gender_value']) ? '' : $_COOKIE['gender_value'];
-  $values['limbs'] = empty($_COOKIE['limbs_value']) ? '' : $_COOKIE['limbs_value'];
-  $values['select'] = empty($_COOKIE['select_value']) ? '' : $_COOKIE['select_value'];
-  $values['bio'] = empty($_COOKIE['bio_value']) ? '' : $_COOKIE['bio_value'];
-  $values['policy'] = empty($_COOKIE['policy_value']) ? '' : $_COOKIE['policy_value'];
+  $values['name'] = empty($_COOKIE['name_value']) ? '' : strip_tags($_COOKIE['name_value']);
+  $values['email'] = empty($_COOKIE['email_value']) ? '' : strip_tags($_COOKIE['email_value']);
+  $values['birth'] = empty($_COOKIE['birth_value']) ? '' : strip_tags($_COOKIE['birth_value']);
+  $values['gender'] = empty($_COOKIE['gender_value']) ? '' : strip_tags($_COOKIE['gender_value']);
+  $values['limbs'] = empty($_COOKIE['limbs_value']) ? '' : strip_tags($_COOKIE['limbs_value']);
+  $values['select'] = empty($_COOKIE['select_value']) ? '' : strip_tags($_COOKIE['select_value']);
+  $values['bio'] = empty($_COOKIE['bio_value']) ? '' : strip_tags($_COOKIE['bio_value']);
+  $values['policy'] = empty($_COOKIE['policy_value']) ? '' : strip_tags($_COOKIE['policy_value']);
 
   // Если нет предыдущих ошибок ввода, есть кука сессии, начали сессию и
   // ранее в сессию записан факт успешного логина.
@@ -109,18 +109,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       $stmt = $db->prepare("SELECT * FROM members WHERE login = ?");
       $stmt->execute(array($member));
       $result = $stmt->fetch(PDO::FETCH_ASSOC);
-      $values['name'] = empty($result['name_value']) ? '' : $result['name_value'];
-      $values['email'] = empty($result['email_value']) ? '' : $result['email_value'];
-      $values['birth'] = empty($result['birth_value']) ? '' : $result['birth_value'];
-      $values['gender'] = empty($result['gender_value']) ? '' : $result['gender_value'];
-      $values['limbs'] = empty($result['limbs_value']) ? '' : $result['limbs_value'];
-      $values['bio'] = empty($result['bio_value']) ? '' : $result['bio_value'];
-      $values['policy'] = empty($result['policy_value']) ? '' : $result['policy_value'];
+      $values['name'] = empty($result['name']) ? '' : $result['name_value'];
+      $values['email'] = empty($result['email']) ? '' : $result['email_value'];
+      $values['birth'] = empty($result['date']) ? '' : $result['birth_value'];
+      $values['gender'] = empty($result['gender']) ? '' : $result['gender_value'];
+      $values['limbs'] = empty($result['limbs']) ? '' : $result['limbs_value'];
+      $values['bio'] = empty($result['bio']) ? '' : $result['bio_value'];
+      $values['policy'] = empty($result['policy']) ? '' : $result['policy_value'];
 
       $powers = $db->prepare("SELECT * FROM powers2 WHERE user_login = ? ");
       $powers->execute(array($member));
       $result = $powers->fetch(PDO::FETCH_ASSOC);
-      $values['select'] = empty($result['select_value']) ? '' : $result['select_value'];
+      $values['select'] = empty($result['powers']) ? '' : $result['select_value'];
     } catch (PDOException $e) {
       print('Error : ' . $e->getMessage());
       exit();

@@ -22,7 +22,7 @@ if (!empty($_SESSION['login'])) {
   // TODO: Сделать выход (окончание сессии вызовом session_destroy()
   //при нажатии на кнопку Выход).
   // Делаем перенаправление на форму.
-  header('Location: ./form');
+  header('Location: ./');
 }
 
 // В суперглобальном массиве $_SERVER PHP сохраняет некторые заголовки запроса HTTP
@@ -62,8 +62,8 @@ else {
     // Если все ок, то авторизуем пользователя.
     $_SESSION['login'] = $_POST['login'];
     // Записываем ID пользователя.
-    $_SESSION['uid'] = $_POST['pass'];
+    $_SESSION['uid'] = $result['id'];
     // Делаем перенаправление.
-    header('Location: ./form');
+    header('Location: ./');
   }
 }
